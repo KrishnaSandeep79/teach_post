@@ -1,0 +1,10 @@
+{% extends "website/base.html" %}
+{% block content %}
+    <div style="margin-left:180px; margin-top: 50px;">
+    <h2>Sign up for a free account</h2>
+    <p class="lead">Select below the type of account you want to create</p>
+    <a href="{% url 'student_register' %}" class="btn btn-primary btn-lg" role="button"><i class="fas fa-book-reader"></i>I'm a student</a>
+    <span>&nbsp;</span>
+    <a href="{% url 'teacher_register' %}" class="btn btn-info btn-lg" role="button"><i class="fas fa-chalkboard-teacher"></i>I'm a teacher</a>
+    </div>
+{% endblock content %}    

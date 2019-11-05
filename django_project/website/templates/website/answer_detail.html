@@ -1,0 +1,28 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+<article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+    <div class="media-body">
+  
+      <div class="article-metadata">
+  
+        <p>answered by {{ object.author }}</p>
+        {% if object.author == user %}
+            <div>
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'answer-update' object.id %}"><i class="far fa-edit"></i>Update</a>
+              <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'answer-delete' object.id %}"><i class="fas fa-trash-alt"></i>Delete</a>
+            </div>
+        {% endif %}
+  
+      </div>
+      {% if user.is_authenticated %}
+        <h5>{{ object.answer_text }}</h5>
+      {% endif %} 
+      <small class="text-muted">answered on: {{ object.answered_at|date:"F d, Y" }}</small>
+     
+    </div>
+  
+  </article>
+    
+{% endblock content %}    

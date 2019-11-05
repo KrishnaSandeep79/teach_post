@@ -1,0 +1,16 @@
+{% extends "website/base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Delete Answer</legend>
+                <h5>Are you sure you want to delete this answer?</h5>
+            </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-danger" type="submit"><i class="fas fa-trash-alt"></i>Delete</button>
+                    <a class="btn btn-outline-secondary" href="{% url 'answer-detail' object.id %}"><i class="far fa-times-circle"></i>Cancel</a>
+                </div>
+        </form>
+    </div>
+{% endblock content %}    
